@@ -1,8 +1,4 @@
 
-
-import java.io.InputStreamReader;
-
-
 import java.util.*;
 
 
@@ -16,45 +12,41 @@ class Encryption {
         
         for(int i=0;i<str.length();i++)
         {
-            if((str.charAt(i)>=65 && str.charAt(i)<=90)
+            if((str.charAt(i)>=65 && str.charAt(i)<=90) )
                {
-                   aa=(str.charAt(i)+k);
-                   if(aa>90)
-                       {
-                       rr=aa%90;
-                       nstr+=(char)(65+rr);
+                   if((str.charAt(i)+k)>90)
+                   {
+                       nstr+=""+(char)(65+(((str.charAt(i)+k)-90)-1));
                    }
                    else
-                       nstr+=(char)(str.charAt(i)+k);
+                   {
+                       nstr+=""+(char)(str.charAt(i)+k);
+                   }
+                   
               }
-              if(str.charAt(i)>=97 && str.charAt(i)<=122)
+              else if(str.charAt(i)>=97 && str.charAt(i)<=122)
                {
-               aa=(str.charAt(i)+k);
-                   if(aa>122)
-                       {
-                       rr=aa%122;
-                       nstr+=(char)(97+rr);
+                   if((str.charAt(i)+k)>122)
+                   {
+                       nstr+=""+(char)(97+(((str.charAt(i)+k)-122)-1));
                    }
                    else
-                       nstr+=(char)(str.charAt(i)+k);
-             
-               
-            }
+                   {
+                       nstr+=""+(char)(str.charAt(i)+k);
+                   }
+              }          
             else if((str.charAt(i)>=48 && str.charAt(i)<=57))
             {
                 String n=""+(char)(str.charAt(i));
                 int na=Integer.parseInt(n);
                 na=na+k;
-                na=na%10;
-               
-               
-                
+                na=na%10;  
                 nstr+=na;
             }
             else
             {
-                nstr+=str.charAt(i);
-            }
+                nstr+=""+(char)(str.charAt(i));
+            }      
         }
         System.out.println(nstr);
 
